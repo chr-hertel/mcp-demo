@@ -29,6 +29,7 @@ use function Symfony\Component\String\u;
  * @author Yonel Ceruto <yonelceruto@gmail.com>
  *
  * @method Post|null findOneByTitle(string $postTitle)
+ * @method Post|null findOneBySlug(string $postSlug)
  *
  * @template-extends ServiceEntityRepository<Post>
  */

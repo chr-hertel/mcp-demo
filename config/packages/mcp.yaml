@@ -1,0 +1,4 @@
+mcp:
+    client_transports:
+        sse: true
+        stdio: true

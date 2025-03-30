@@ -1,0 +1,3 @@
+_mcp:
+    resource: 'mcp.server.route_loader'
+    type: service
