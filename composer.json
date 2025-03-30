@@ -19,6 +19,9 @@
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.0",
         "league/commonmark": "^2.1",
+        "php-llm/llm-chain-bundle": "^0.19.0",
+        "php-llm/mcp-bundle": "dev-main",
+        "php-llm/mcp-sdk": "dev-main",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "7.2.*",
         "symfony/asset-mapper": "7.2.*",
@@ -107,5 +110,9 @@
             "allow-contrib": true,
             "require": "7.2.*"
         }
-    }
+    },
+    "repositories": [
+        { "type": "path", "url": "../mcp-sdk" },
+        { "type": "path", "url": "../mcp-bundle" }
+    ]
 }
