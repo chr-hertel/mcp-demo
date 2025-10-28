@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Tool;
+namespace App\Mcp;
 
 use App\Entity\Post;
 use App\Repository\PostRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Mcp\Capability\Attribute\McpTool;
 use PhpLlm\LlmChain\Chain\Toolbox\Attribute\AsTool;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-#[AsTool('list_posts', 'List all posts of the demo blog', 'list')]
-#[AsTool('create_post', 'Create a new post for the demo blog', 'create')]
-#[AsTool('read_post', 'Read a post of the demo blog', 'read')]
 final readonly class PostTool
 {
     public function __construct(
@@ -24,6 +22,7 @@ final readonly class PostTool
     ) {
     }
 
+    #[McpTool('list_posts', 'List all posts of the demo blog')]
     public function list(): string
     {
         return array_reduce($this->postRepository->findAll(),
@@ -37,6 +36,7 @@ final readonly class PostTool
      * @param string $content Content of the post to create
      * @param string $summary Summary of the post to create
      */
+    #[McpTool('create_post', 'Create a new post for the demo blog')]
     public function create(string $title, string $content, string $summary): string
     {
         $post = new Post();
@@ -57,6 +57,7 @@ final readonly class PostTool
     /**
      * @param string $slug Slug of post to read
      */
+    #[McpTool('read_post', 'Read a post of the demo blog')]
     public function read(string $slug): string
     {
         $post = $this->postRepository->findOneBySlug($slug);

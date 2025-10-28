@@ -1,4 +1,4 @@
 mcp:
     client_transports:
-        sse: true
+        http: true
         stdio: true
