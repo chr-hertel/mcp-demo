@@ -1,0 +1,4 @@
+mcp:
+    client_transports:
+        http: true
+        stdio: true
